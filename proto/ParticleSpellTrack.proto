@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "RebornFrame.Spell.Particles";
+
+// 一条粒子轨道。prefab_key 是带 ParticleSystem 的 Resources 路径，或预先登记的键。
+message ParticleSpellTrackConfig {
+  string prefab_key = 1;
+  bool detach = 2;
+}

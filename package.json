@@ -1,0 +1,11 @@
+{
+  "name": "com.reborn.spell.particles",
+  "displayName": "技能粒子轨道",
+  "version": "1.0.0",
+  "unity": "6000.0",
+  "description": "用 Unity 粒子系统播放技能表现轨道。",
+  "dependencies": {
+    "com.reborn.spell": "1.2.0",
+    "com.reborn.protobuf": "1.0.0"
+  }
+}

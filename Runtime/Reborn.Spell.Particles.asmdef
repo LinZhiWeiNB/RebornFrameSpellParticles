@@ -1,0 +1,17 @@
+{
+  "name": "reborn.spell.particles",
+  "rootNamespace": "RebornFrame.Spell.Particles",
+  "references": [
+    "reborn.spell",
+    "reborn.protobuf"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

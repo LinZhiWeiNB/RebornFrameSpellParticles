@@ -40,6 +40,33 @@ namespace RebornFrame.Spell.Particles
             Prefabs[key] = prefab;
         }
 
+        /// <summary>
+        ///     收下数据包解开后的预制体。没有 ParticleSystem 的预制体不收。
+        ///     数据包不会把 AssetBundle 的字节交到这里。
+        /// </summary>
+        /// <param name="key">预制体键。</param>
+        /// <param name="prefab">预制体。</param>
+        public static void AcceptPrefab(string key, GameObject prefab)
+        {
+            if (string.IsNullOrEmpty(key) || prefab == null) return;
+
+            if (prefab.GetComponentInChildren<ParticleSystem>(true) == null) return;
+
+            Prefabs[key] = prefab;
+        }
+
+        /// <summary>取出已经收下的粒子预制体。</summary>
+        public static bool TryGetPrefab(string key, out GameObject prefab)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                prefab = null;
+                return false;
+            }
+
+            return Prefabs.TryGetValue(key, out prefab);
+        }
+
         /// <summary>向技能包注册粒子轨道。重复调用没有效果。</summary>
         public static void EnsureRegistered()
         {

@@ -141,6 +141,19 @@ namespace RebornFrame.Spell.Particles
                 DestroyObject(_instance);
             }
 
+            public void Show(int frame, bool play)
+            {
+                if (_instance == null) return;
+
+                if (_detach) _instance.transform.SetParent(null, true);
+
+                _instance.SetActive(true);
+                var system = _instance.GetComponent<ParticleSystem>();
+                var seconds = Math.Max(0, frame) * SpellPresentation.FrameDuration;
+                system.Simulate(seconds, true, true, true);
+                if (play) system.Play(true);
+            }
+
             private static void DestroyObject(UnityEngine.Object target)
             {
                 if (Application.isPlaying) UnityEngine.Object.Destroy(target);

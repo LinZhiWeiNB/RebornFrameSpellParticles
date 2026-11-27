@@ -141,7 +141,7 @@ namespace RebornFrame.Spell.Particles
                 DestroyObject(_instance);
             }
 
-            public void Show(int frame, bool play)
+            public void Show(float time, bool play)
             {
                 if (_instance == null) return;
 
@@ -149,7 +149,7 @@ namespace RebornFrame.Spell.Particles
 
                 _instance.SetActive(true);
                 var system = _instance.GetComponent<ParticleSystem>();
-                var seconds = Math.Max(0, frame) * SpellPresentation.FrameDuration;
+                var seconds = Math.Max(0f, time);
                 system.Simulate(seconds, true, true, true);
                 if (play) system.Play(true);
             }
